@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="icon" href="/images/money-logo.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <title>MONEY MANAGER</title>
+    <style>
+        .font-montserrat {
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center font-montserrat bg-gray-50 min-h-screen">
+
+    <header class="w-full">
+        <h1 class="text-3xl sm:text-5xl font-bold text-center bg-green-700 text-white py-3.5">
+            MONEY MANAGER
+        </h1>
+    </header>
+
+    <!-- Responsive History bar -->
+    <div class="w-full flex justify-end px-4 mt-4">
+        <div class="flex items-center gap-2 text-gray-700 text-base sm:text-lg font-semibold">
+            <span>🕒</span>
+            <span>History</span>
+        </div>
+    </div>
+
+    <section class="w-full flex flex-col items-center px-4 mt-4">
+
+        <!-- Balance box -->
+        <div
+            class="w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[75vw] lg:max-w-[50vw] py-6 my-4 flex flex-col justify-center items-center gap-5 border-y-2 border-black bg-white rounded shadow">
+            <h1 class="text-2xl sm:text-4xl font-bold text-green-700 text-center">BALANCE : ₹ 0.0</h1>
+            <div class="text-xs sm:text-sm w-full flex justify-around">
+                <span class="text-gray-600">BANK : ₹ 0.0</span>
+                <span class="text-gray-600">CASH : ₹ 0.0</span>
+            </div>
+        </div>
+
+        <!-- Edit Balance Button -->
+        <div class="my-4">
+            <a href="edit.html" target="_blank"
+                class="cursor-pointer inline-block text-center w-full sm:w-auto px-4 py-2 sm:px-6 sm:py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition text-sm sm:text-base">
+                EDIT BALANCE
+            </a>
+        </div>
+
+        <!-- Other Action Buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6">
+
+            <a href="add.html" target="_blank"
+                class="cursor-pointer inline-block text-center w-full px-3 py-2 sm:px-4 sm:py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-sm sm:text-base">
+                ADD MONEY
+            </a>
+
+            <a href="withdraw.html" target="_blank"
+                class="cursor-pointer inline-block text-center w-full px-3 py-2 sm:px-4 sm:py-2 bg-red-600 text-white rounded hover:bg-red-700 transition text-sm sm:text-base">
+                WITHDRAW MONEY
+            </a>
+
+            <a href="borrow.html" target="_blank"
+                class="cursor-pointer inline-block text-center w-full px-3 py-2 sm:px-4 sm:py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm sm:text-base">
+                BORROW MONEY
+            </a>
+
+            <a href="lend.html" target="_blank"
+                class="cursor-pointer inline-block text-center w-full px-3 py-2 sm:px-4 sm:py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-sm sm:text-base">
+                LEND MONEY
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer class="w-full mt-auto py-4 text-center text-gray-500 text-xs sm:text-sm">
+        © 2025 Money Manager
+    </footer>
+
+</body>
+
+</html>
