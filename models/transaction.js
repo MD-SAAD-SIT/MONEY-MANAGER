@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const trackSchema = new mongoose.Schema({
-  action: { type: String, enum: ["ADD", "WITHDRAW", "LEND", "BORROW"] },
-  amount: { type: Number },
-  transactionMode: { type: String, enum: ["BANK", "CASH"] },
+  action: { type: String, enum: ["ADD", "WITHDRAW", "LEND", "BORROW"], required: true },
+  amount: { type: Number, required: true },
+  transactionMode: { type: String, enum: ["BANK", "CASH"], required: true },
   fullfilled : { type: String, enum: ["YES", "NO"]},
   message: { type: String, default: "no message" },
   date: { type: String, default: () => new Date().toISOString().slice(0, 10) },
