@@ -1,18 +1,13 @@
 const express = require('express');
 const routes = express.Router();
 const {
-    getBalance,
-    editBalance,
-    addMoney,
-    withdrawMoney,
-    lendMoney,
-    borrowMoney
-} = require('../controllers/info');
+  getBalance,
+  editBalance,
+  updations,
+  fullfill,
+} = require("../controllers/info");
 
-routes.route('/').get(getBalance);
-routes.route('/edit').patch(editBalance)
-routes.route('/add').put(addMoney)
-routes.route('/withdraw').put(withdrawMoney)
-routes.route('/lend').put(lendMoney)
-routes.route('/borrow').put(borrowMoney)
-
+routes.route('/').get(getBalance).patch(editBalance);
+routes.route('/process').post(updations);
+routes.route('/process/:id').patch(fullfill);
+module.exports = routes;
