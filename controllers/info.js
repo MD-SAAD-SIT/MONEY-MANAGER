@@ -5,6 +5,10 @@ const getBalance = async (req, res) => {
     console.log('getting balance');
 }
 
+const editBalance = async (req, res) => {
+    console.log('editing balance');
+}
+
 const addMoney = async (req, res) => {
     console.log('adding money');
 }
@@ -21,4 +25,4 @@ const borrowMoney = async (req, res) => {
     console.log('borrowing money');
 }
 
-module.exports = { getBalance, addMoney, withdrawMoney, lendMoney, borrowMoney };
+module.exports = { getBalance, editBalance,addMoney, withdrawMoney, lendMoney, borrowMoney };
