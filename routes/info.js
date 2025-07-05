@@ -5,8 +5,9 @@ const {
   editBalance,
   updations,
   fullfill,
+  deleteHistory,
 } = require("../controllers/info");
 
-routes.route("/").get(getBalance).patch(editBalance).post(updations);;
+routes.route("/").get(getBalance).patch(editBalance).post(updations).delete(deleteHistory);
 routes.route('/:id').patch(fullfill);
 module.exports = routes;
