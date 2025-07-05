@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 //routes
-app.use('/app/v1/money', info);
+app.use('/api/v1/money', info);
 
 
 const start = async () => {
