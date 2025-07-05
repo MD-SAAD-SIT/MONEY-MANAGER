@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const info = require('./routes/info')
 const connectDB = require('./db/connect');
 require('dotenv').config();
 
@@ -7,6 +8,8 @@ require('dotenv').config();
 app.use(express.json());
 
 
+//routes
+app.use('/app/v1/money', info);
 
 
 const start = async () => {
