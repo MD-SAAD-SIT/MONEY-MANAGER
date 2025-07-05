@@ -7,7 +7,6 @@ const {
   fullfill,
 } = require("../controllers/info");
 
-routes.route('/').get(getBalance).patch(editBalance);
-routes.route('/process').post(updations);
-routes.route('/process/:id').patch(fullfill);
+routes.route("/").get(getBalance).patch(editBalance).post(updations);;
+routes.route('/:id').patch(fullfill);
 module.exports = routes;
