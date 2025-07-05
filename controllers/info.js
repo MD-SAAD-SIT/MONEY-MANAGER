@@ -21,8 +21,16 @@ const lendMoney = async (req, res) => {
     console.log('lending money');
 }
 
+const fullfillLendMoney = async (req, res) => {
+    console.log('lend money fullfilled')
+}
+
 const borrowMoney = async (req, res) => {
     console.log('borrowing money');
 }
 
-module.exports = { getBalance, editBalance,addMoney, withdrawMoney, lendMoney, borrowMoney };
+const fullfillBorrowMoney = async (req, res) => {
+  console.log("borrow money fullfilled");
+}
+
+module.exports = { getBalance, editBalance,addMoney, withdrawMoney, lendMoney, fullfillLendMoney, borrowMoney, fullfillBorrowMoney };
