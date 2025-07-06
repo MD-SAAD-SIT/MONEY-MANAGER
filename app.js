@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const info = require('./routes/info')
 const connectDB = require('./db/connect');
+const notfound = require("./middleware/not-found");
+const errorHandler = require("./middleware/error-handler");
 require('dotenv').config();
 
 //middlewares
@@ -10,7 +12,8 @@ app.use(express.json());
 
 //routes
 app.use('/api/v1/money', info);
-
+app.use(notfound);
+app.use(errorHandler);
 
 const start = async () => {
   try {
