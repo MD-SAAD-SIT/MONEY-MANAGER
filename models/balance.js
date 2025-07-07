@@ -1,21 +1,19 @@
 const mongoose = require("mongoose");
-
 const balanceSchema = new mongoose.Schema({
-  balance: {
+  BALANCE: {
     type: Number,
     default: 0,
     required: true,
   },
-  acount: {
+  BANK: {
     type: Number,
     default: 0,
     required: true,
   },
-  cash: {
+  CASH: {
     type: Number,
     default: 0,
     required: true,
   },
 });
-
 module.exports = mongoose.model('Balance', balanceSchema);
