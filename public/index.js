@@ -1,7 +1,15 @@
 const balance = document.querySelector('.balance');
 const bank = document.querySelector('.bank');
 const cash = document.querySelector('.cash');
-
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    if (localStorage.getItem("shouldReload") === "yes") {
+      localStorage.removeItem("shouldReload");
+      window.location.reload();
+    }
+  }
+});
+  
 const showBalance = async () => {
     try {
         const {
