@@ -11,6 +11,8 @@ editBtn.addEventListener("click", async (e) => {
       icon: "warning",
       title: "Oops...",
       text: "Enter a value!",
+    }).then(() => {
+      location.reload();
     });
     return;
   }
@@ -19,6 +21,8 @@ editBtn.addEventListener("click", async (e) => {
       icon: "error",
       title: "Invalid Input",
       text: "Please enter a valid number!",
+    }).then(() => {
+      location.reload();
     });
     return;
   }
@@ -40,12 +44,16 @@ editBtn.addEventListener("click", async (e) => {
           <b>Cash:</b> ₹ ${Number(p.data.CASH).toLocaleString("en-IN")}
         `,
       confirmButtonColor: "#facc15",
+    }).then(() => {
+      location.reload();
     });
   } catch (error) {
     Swal.fire({
       icon: "error",
       title: "Error updating balance!",
       text: error.response?.data?.msg || error.message,
+    }).then(() => {
+      location.reload();
     });
   }
 });

@@ -50,13 +50,13 @@ const getHistory = asyncWrapper(async (req, res, next) => {
 });
 
 const updations = asyncWrapper(async (req, res, next) => {
-  await updateBalance({
+  const newBal = await updateBalance({
     action: req.body.action,
     bank: req.body.bank,
     cash: req.body.cash,
   });
   const transactionPhase = await transaction.create(req.body);
-  res.status(200).send({ transactionPhase });
+  res.status(200).json({ transactionPhase, newBal });
 });
 
 const editTransaction = asyncWrapper(async (req, res, next) => {
