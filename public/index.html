@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./src/output.css" />
     <link rel="icon" href="/images/money-logo.png" type="image/png" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <title>MONEY MANAGER</title>
     <style>
         .font-montserrat {
@@ -34,12 +36,11 @@
     <section class="w-full flex flex-col items-center px-4 mt-4">
 
         <!-- Balance box -->
-        <div
-            class="w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[75vw] lg:max-w-[50vw] py-6 my-4 flex flex-col justify-center items-center gap-5 border-y-2 border-black bg-white rounded shadow">
-            <h1 class="text-2xl sm:text-4xl font-bold text-green-700 text-center">BALANCE : ₹ 0.0</h1>
+        <div class="w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[75vw] lg:max-w-[50vw] py-6 my-4 flex flex-col justify-center items-center gap-5 border-y-2 border-black bg-white rounded shadow">
+            <h1 class="text-2xl sm:text-4xl font-bold text-green-700 text-center balance">BALANCE : LOADING...</h1>
             <div class="text-xs sm:text-sm w-full flex justify-around">
-                <span class="text-gray-600">BANK : ₹ 0.0</span>
-                <span class="text-gray-600">CASH : ₹ 0.0</span>
+                <span class="text-gray-600 bank">BANK : LOADING...</span>
+                <span class="text-gray-600 cash">CASH : LOADING...</span>
             </div>
         </div>
 
@@ -81,7 +82,7 @@
     <footer class="w-full mt-auto py-4 text-center text-gray-500 text-xs sm:text-sm">
         © 2025 Money Manager
     </footer>
-
+<script src="index.js"></script>
 </body>
 
 </html>
