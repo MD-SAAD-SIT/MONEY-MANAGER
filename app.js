@@ -8,7 +8,7 @@ require('dotenv').config();
 
 //middlewares
 app.use(express.json());
-
+app.use(express.static('./public'));
 
 //routes
 app.use('/api/v1/money', info);

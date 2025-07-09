@@ -5,16 +5,15 @@ const asyncWrapper = require("../middleware/async");
 const { createCustomError } = require("../errors/custom-errors");
 require("dotenv").config();
 const getBalance = asyncWrapper(async (req, res, next) => {
-  const test = await balance.findOne();
-  if (!test) {
-    const bal = await balance.create({
+  var bal = await balance.findOne();
+  if (!bal) {
+     bal = await balance.create({
       BALANCE: 0,
       BANK: 0,
       CASH: 0,
     });
-    res.status(200).json({ bal });
   }
-  res.status(200).json({ test });
+  res.status(200).json({ bal });
 });
 
 const updateBalance = async ({ action, bank, cash }) => {
