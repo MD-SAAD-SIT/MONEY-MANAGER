@@ -1,13 +1,11 @@
-const express = require('express');
+const express = require("express");
 const routes = express.Router();
+const transactions = require('./transactions')
 const {
   getBalance,
   editBalance,
-  updations,
-  fullfill,
-  deleteHistory,
 } = require("../controllers/info");
 
-routes.route("/").get(getBalance).patch(editBalance).post(updations).delete(deleteHistory);
-routes.route('/:id').patch(fullfill);
+routes.route("/").get(getBalance).patch(editBalance);
+routes.use('/transactions', transactions);
 module.exports = routes;
