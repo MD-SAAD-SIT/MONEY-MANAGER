@@ -4,8 +4,9 @@ const {
   updations,
   getTransactions,
   editTransaction,
-  deleteHistory,
+    deleteHistory,
+  deleteTransaction
 } = require("../controllers/info");
 routes.route("/").get(getTransactions).post(updations).delete(deleteHistory);
-routes.route("/:id").patch(editTransaction);
+routes.route("/:id").patch(editTransaction).delete(deleteTransaction);
 module.exports = routes;
