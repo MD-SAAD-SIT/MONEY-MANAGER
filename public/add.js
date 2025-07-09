@@ -37,18 +37,14 @@ addBtn.addEventListener("click", async (e) => {
           payload.message = message;
         }
         const p = await axios.post("/api/v1/money/transactions", payload);
+      const { transactionPhase: added, newBal: bal } = p.data;
     localStorage.setItem("shouldReload", "yes");
     Swal.fire({
       icon: "success",
       title: "✅ Amount credited!",
       html: `
-            <b>Credited Amount :</b> ₹ ${(
-              Number(p.data.transactionPhase.bank) +
-              Number(p.data.transactionPhase.cash)
-            ).toLocaleString("en-IN")}<br>
-            <b>New Balance :</b> ₹ ${Number(
-              p.data.newBal.BALANCE
-            ).toLocaleString("en-IN")}
+            <b>Credited Amount :</b> ₹ ${(Number(added.bank) +Number(added.cash)).toLocaleString("en-IN")}<br>
+            <b>New Balance :</b> ₹ ${Number(bal.BALANCE).toLocaleString("en-IN")}
           `,
       confirmButtonColor: "#facc15",
     }).then(() => {
