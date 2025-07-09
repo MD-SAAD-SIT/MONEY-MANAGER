@@ -3,7 +3,7 @@ const balance = require("../models/balance");
 const transaction = require("../models/transaction");
 const asyncWrapper = require("../middleware/async");
 const { createCustomError } = require("../errors/custom-errors");
-require("dotenv").config();
+
 const getBalance = asyncWrapper(async (req, res, next) => {
   var bal = await balance.findOne();
   if (!bal) {
