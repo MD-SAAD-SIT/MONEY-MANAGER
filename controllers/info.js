@@ -5,14 +5,13 @@ const asyncWrapper = require("../middleware/async");
 const { createCustomError } = require("../errors/custom-errors");
 
 const getBalance = asyncWrapper(async (req, res, next) => {
-  var bal = await balance.findOne();
-  if (!bal) {
-     bal = await balance.create({
+  const bal =
+    (await balance.findOne()) ??
+    (await balance.create({
       BALANCE: 0,
       BANK: 0,
       CASH: 0,
-    });
-  }
+    }));
   res.status(200).json({ bal });
 });
 
