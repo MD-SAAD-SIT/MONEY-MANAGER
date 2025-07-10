@@ -31,8 +31,9 @@ borrowBtn.addEventListener("click", async (e) => {
   const bank = Number(inputBank);
   const cash = Number(inputCash);
   const action = "BORROW";
+  const fullfilled = "NO";
   try {
-    const payload = { action, bank, cash };
+    const payload = { action, bank, cash, fullfilled };
     if (message !== "") {
       payload.message = message;
     }
