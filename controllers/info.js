@@ -42,9 +42,6 @@ const editBalance = asyncWrapper(async (req, res, next) => {
 
 const getHistory = asyncWrapper(async (req, res, next) => {
   const getAll = await transaction.find({});
-  if (getAll.length == 0) {
-    return next(createCustomError("No transactions found", 404));
-  }
   res.status(200).json({ getAll });
 });
 

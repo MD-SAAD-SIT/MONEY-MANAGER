@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="icon" href="./images/history.jpg" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>HISTORY</title>
+    <style>
+        .font-montserrat {
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-montserrat min-h-screen flex flex-col items-center">
+
+    <main class="w-full flex justify-center px-4 mt-8">
+        <div class="w-full max-w-3xl bg-white shadow-lg rounded-lg p-6">
+
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">
+                Transaction History
+            </h2>
+
+            <div class="max-h-[400px] overflow-y-auto space-y-4 pr-2" id="transBox">
+                <div class="flex justify-center p-4 bg-gray-50 rounded hover:bg-gray-100">
+                    <span class="text-sm text-gray-700">
+                        LOADING....
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="history.js"></script>
+</body>
+
+</html>
