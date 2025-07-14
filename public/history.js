@@ -22,7 +22,8 @@ const getTransactions = async () => {
       .map((data) => {
         const { action, bank, cash, date, message } = data;
         const color = colors[action];
-        const amount = bank + cash;
+        const am1 = bank + cash;
+        const amount = am1.toLocaleString("en-IN");
         return `<div class="grid grid-cols-3 gap-4 p-4 bg-gray-50 rounded hover:bg-gray-100">
     <span class="text-sm font-semibold text-${color}-600">${action}</span>
     <span class="text-right text-sm sm:text-lg font-bold text-gray-800">₹ ${amount}</span>

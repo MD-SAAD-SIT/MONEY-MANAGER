@@ -90,10 +90,7 @@ const editTransaction = asyncWrapper(async (req, res, next) => {
 });
 
 const getTransactions = asyncWrapper(async (req, res, next) => {
-  const transactions = await transaction.find({ action: req.body.action });
-  if (transactions.length === 0) {
-    return next(createCustomError("No transactions found", 404));
-  }
+  const transactions = await transaction.find({ action: req.query.action });
   res.status(200).json({ transactions });
 });
 
