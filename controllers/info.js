@@ -95,11 +95,41 @@ const getTransactions = asyncWrapper(async (req, res, next) => {
 });
 
 const deleteHistory = asyncWrapper(async (req, res, next) => {
-  const deleteAll = await transaction.deleteMany({});
-  if (!deleteAll.deletedCount) {
-    return res.status(200).json({
-      message: "No transactions to delete.",
-    });
+  const protectedTransactions = await transaction.find({
+    action: { $in: ["LEND", "BORROW"] },
+    fullfilled: "NO",
+  });
+  const deleteAll = await transaction.deleteMany({
+    $nor: [
+      {
+        action: { $in: ["LEND", "BORROW"] },
+        fullfilled: "NO",
+      },
+    ],
+  });
+  if (protectedTransactions.length > 0) {
+    return next(createCustomError(`Unfulfilled transactions cannot be deleted`, 403));
+  }
+  res.status(200).json({
+    message: "Transactions deleted successfully.",
+    deletedCount: deleteAll.deletedCount,
+  });
+});
+
+const deleteActionHistory = asyncWrapper(async (req, res, next) => {
+  const { action } = req.params;
+  const protectedTransactions = await transaction.find({
+    action,
+    fullfilled: "NO",
+  });
+  const deleteAll = await transaction.deleteMany({
+    action,
+    fullfilled: { $ne: "NO" },
+  });
+  if (protectedTransactions.length > 0) {
+    return next(
+      createCustomError(`Unfulfilled transactions cannot be deleted`, 403)
+    );
   }
   res.status(200).json({
     message: "Transactions deleted successfully.",
@@ -112,10 +142,14 @@ const deleteTransaction = asyncWrapper(async (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(transID)) {
     return next(createCustomError(`Invalid transaction ID format`, 400));
   }
-  const deleteTrans = await transaction.findByIdAndDelete(transID);
+  const deleteTrans = await transaction.findById(transID);
   if (!deleteTrans) {
     return next(createCustomError(`Transaction not found`, 404));
   }
+  if (deleteTrans.fullfilled == "NO") {
+    return next(createCustomError(`Unfullfilled transactions cannot be deleted`, 403));
+  }
+  await deleteTrans.deleteOne();
   res.status(200).json({ message: "Transaction deleted successfully" });
 });
 
@@ -127,5 +161,6 @@ module.exports = {
   getTransactions,
   editTransaction,
   deleteHistory,
+  deleteActionHistory,
   deleteTransaction,
 };
